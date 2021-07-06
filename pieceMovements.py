@@ -20,7 +20,7 @@ def template(board, piece, moves, player):
             #print(row, column)
             if board[row][column] == '.':
                 continue
-            elif (board[row][column] == f"{piece}" and player == 0) or (board[row][column] == f"piece".lower() and player == 1):
+            elif (board[row][column] == f"{piece}" and player == 0) or (board[row][column] == f"{piece}".lower() and player == 1):
                 # piece found
                 return (row,column)
             else:
