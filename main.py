@@ -7,7 +7,7 @@ def printBoard(board : list):
 
 def parse_input() -> list[str]:
     # to complete, will return coordinates in list, as ["piece name", "row", column"]
-    return ["Q", 4, 3]
+    return ["B", 4, 5]
 
 
 def main():
@@ -23,8 +23,8 @@ def main():
     ]
     printBoard(board) 
     """ example:
-    if queenMovements(board, 0) != -1:
-        board = replacement(board, "Q", queenMovements(board, 0)[0], queenMovements(board, 0)[1])
+    if bishopMovements(board, 0) != -1:
+        board = replacement(board, "B", bishopMovements(board, 0)[0], bishopMovements(board, 0)[1])
     else:
         print("move isn't legal")
     printBoard(board)

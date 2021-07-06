@@ -13,8 +13,7 @@ def template(board, piece, moves, player):
     for move in moves:
         row = parse_input()[1] 
         column = parse_input()[2]
-        #condition to simplify x > y > z
-        while row + move[0] >= 0 and row + move[0] <= 7 and column + move[1] >= 0 and column + move[1] <= 7:
+        while (0 <= row + move[0] <= 7 ) and (0 <= column + move[1] <= 7):
             row += move[0]
             column += move[1]
             #print(row, column)
