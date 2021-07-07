@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pieceMovements import *
 
-def printBoard(board : list):
+def print_board(board : list):
     for row in board:
         print(" ".join(row))
     print()
@@ -22,7 +22,7 @@ def main():
         ["P", "P", "P", ".", "P", "P", "P", "P"],
         ["R", "N", "B", "Q", "K", "B", "N", "R"],
     ]
-    printBoard(board) 
+    print_board(board) 
 
     #example:
     player = 0
@@ -37,7 +37,7 @@ def main():
         print("Illegal move")
     #end of example
 
-    printBoard(board)
+    print_board(board)
 
 
 if __name__ == '__main__':
