@@ -34,27 +34,12 @@ def template(board, piece, o_row, o_column, moves, player):
     # in case in we didn't find any path :(
     return -1
 
-def bishopMovements(board, player, player_move):
-    moves = [
-        [1,1],
-        [-1,-1],
-        [-1,1],
-        [1,-1]
-    ]
-    return template(board, player_move[0], player_move[1], player_move[2], moves, player)
-
-def rookMovements(board, player, player_move):
-    moves = [
-        [1,0],
-        [-1,0],
-        [0,1],
-        [0,-1],
-    ]
-    return template(board, player_move[0], player_move[1], player_move[2], moves, player)
-
-def queenMovements(board, player, player_move):
-    moves = [
-        # basically rook + bishop
+# Don't know yet how to limit movement of pawn and king to only one field at a time,
+# and allow for diagonal capturing with pawns
+# also castling and en passant will need some special exceptions to accomodate
+def movements(board, player, player_move):
+    movdict = {
+        "q" : [
         [1,0],
         [-1,0],
         [0,1],
@@ -63,11 +48,14 @@ def queenMovements(board, player, player_move):
         [-1,-1],
         [-1,1],
         [1,-1]
-    ]
-    return template(board, player_move[0], player_move[1], player_move[2], moves, player)
-
-def knightMovements(board, player, player_move):
-  moves = [
+        ],
+        "b" : [
+        [1,1],
+        [-1,-1],
+        [-1,1],
+        [1,-1]
+        ],
+        "n" : [
         [2,1],
         [2,-1],
         [-2,1],
@@ -76,5 +64,23 @@ def knightMovements(board, player, player_move):
         [1, -2],
         [-1, 2],
         [-1, -2],
-    ]
-  return template(board, player_move[0], player_move[1], player_move[2], moves, player)
+        ],
+        "r" : [
+        [1,0],
+        [-1,0],
+        [0,1],
+        [0,-1],
+        ],
+        "p" : [
+        [1,0]
+        ],
+        "k" : [
+        [1,0],
+        [-1,0],
+        [0,1],
+        [0,-1],
+        ]
+    }
+
+    moves = movdict[player_move[0].lower()]
+    return template(board, player_move[0], player_move[1], player_move[2], moves, player)

@@ -10,7 +10,7 @@ def print_board(board : list):
     print("\n") # prints two newlines
 
 def parse_input(move_input : str, player) -> list:
-    if len(move_input) == 9: #2 not 9
+    if len(move_input) == 2:
         if player:
             move_input = "p" + move_input
         else:
@@ -19,7 +19,7 @@ def parse_input(move_input : str, player) -> list:
     row = 8 - int(move_input[2])
 
     columns = ["a", "b", "c", "d", "e", "f", "g", "h"]
-    print(move_input)
+    #print(move_input)
     col = columns.index(move_input[1])
 
     return [move_input[0], row, col]
@@ -39,19 +39,20 @@ def main():
     print_board(board) 
 
     #example:
-    player = 0
-    player_move = parse_input(input(), player)
-    print(player_move)
-    old_position = queenMovements(board, player, player_move)
-    #print("Old position: " + ''.join(str(old_position)))
-    #print("New position: " + str(player_move[1]) + "," + str(player_move[2]))
-    if old_position != -1:
-        board = replacement(board, player_move, old_position)
-        pass
-    else:
-        print("Illegal move")
-    #end of example
-    print_board(board)
+    while True:
+        player = 0
+        player_move = parse_input(input(), player)
+        #print(player_move)
+        old_position = movements(board, player, player_move)
+        #print("Old position: " + ''.join(str(old_position)))
+        #print("New position: " + str(player_move[1]) + "," + str(player_move[2]))
+        if old_position != -1:
+            board = replacement(board, player_move, old_position)
+            pass
+        else:
+            print("Illegal move")
+        #end of example
+        print_board(board)
 
 
 if __name__ == '__main__':
