@@ -10,7 +10,6 @@ def parse_input(move_input : str) -> list:
     # to complete, will return coordinates in list, as ["piece name", "row", column"]
     return ["B", 4, 5]
 
-
 def main():
     board = [
         ["r", "n", "b", "q", "k", "b", "n", "r"],
@@ -36,7 +35,6 @@ def main():
     else:
         print("Illegal move")
     #end of example
-
     print_board(board)
 
 

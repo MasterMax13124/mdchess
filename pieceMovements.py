@@ -19,7 +19,6 @@ def template(board, piece, o_row, o_column, moves, player):
         # verifying that the goal square is free
         if (board[row][column] in "PRNBQK" and player == 0 ) or (board[row][column] in "prnbqk" and player == 1):
             return -1
-
         while (0 <= row + move[0] <= 7 ) and (0 <= column + move[1] <= 7):
             row += move[0]
             column += move[1]
@@ -68,7 +67,7 @@ def queenMovements(board, player, player_move):
     return template(board, player_move[0], player_move[1], player_move[2], moves, player)
 
 def knightMovements(board, player, player_move):
-    moves = [
+  moves = [
         [2,1],
         [2,-1],
         [-2,1],
@@ -79,3 +78,4 @@ def knightMovements(board, player, player_move):
         [-1, -2],
     ]
     return template(board, player_move[0], player_move[1], player_move[2], moves, player)
+
