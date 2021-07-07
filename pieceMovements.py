@@ -77,5 +77,4 @@ def knightMovements(board, player, player_move):
         [-1, 2],
         [-1, -2],
     ]
-    return template(board, player_move[0], player_move[1], player_move[2], moves, player)
-
+  return template(board, player_move[0], player_move[1], player_move[2], moves, player)
