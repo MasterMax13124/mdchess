@@ -2,15 +2,17 @@
 
 from main import parse_input
 
-def replacement(board, player_move , row, column):
+def replacement(board, player_move, old_position):
     board[player_move[1]][player_move[2]] = f"{player_move[0]}"
-    board[row][column] = '.'
+    board[old_position[0]][old_position[1]] = '.'
     return board
 
-def template(board, piece, row, column, moves, player):
+def template(board, piece, o_row, o_column, moves, player):
     # player : 0 = white, 1 = black
     # return : -1 = move ain't possible, tuple (coordinates) = ain't no problemo bro
     for move in moves:
+        row = o_row 
+        column = o_column
         while (0 <= row + move[0] <= 7 ) and (0 <= column + move[1] <= 7):
             row += move[0]
             column += move[1]

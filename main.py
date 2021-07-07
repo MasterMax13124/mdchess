@@ -23,15 +23,19 @@ def main():
         ["R", "N", "B", "Q", "K", "B", "N", "R"],
     ]
     printBoard(board) 
+
     #example:
     player = 0
-    player_move = parse_input(input())
+    player_move = parse_input("") #will later contain input()
     old_position = bishopMovements(board, player, player_move)
+    print("Old position: " + ''.join(str(old_position)))
+    print("New position: " + str(player_move[1]) + "," + str(player_move[2]))
     if old_position != -1:
-        print(old_position)
+        board = replacement(board, player_move, old_position)
         pass
     else:
         print("Illegal move")
+    #end of example
 
     printBoard(board)
 
