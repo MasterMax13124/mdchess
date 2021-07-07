@@ -13,6 +13,9 @@ def template(board, piece, moves, player):
     for move in moves:
         row = parse_input()[1] 
         column = parse_input()[2]
+        # verifying that the goal square is free
+        if (board[row][column] in "PRNBQK" and player == 0 ) or (board[row][column] in "prnbqk" and player == 1):
+            return -1
         while (0 <= row + move[0] <= 7 ) and (0 <= column + move[1] <= 7):
             row += move[0]
             column += move[1]
@@ -59,3 +62,25 @@ def queenMovements(board, player):
         [1,-1]
     ]
     return template(board, "Q", moves, player)
+
+def knightMovements(board, player):
+    moves = [
+        [2,1],
+        [2,-1],
+        [-2,1],
+        [-2, -1],
+        [1, 2],
+        [1, -2],
+        [-1, 2],
+        [-1, -2],
+    ]
+    if (board[parse_input()[1]][parse_input()[2]] in "PRNBQK" and player == 0) or (board[parse_input()[1]][parse_input()[2]] in "prnbqk" and player == 1):
+        return -1
+    for move in moves:
+        row = parse_input()[1] + move[0]
+        column = parse_input()[2] + move[1]
+        if (board[row][column] == 'N' and player == 0) or (board[row][column] == 'n' and player == 1):
+            return (row,column)
+    return -1
+
+
